@@ -1,0 +1,41 @@
+/*    Objectif
+
+
+Le tri par insertion est un algorithme de tri simple
+qui fonctionne de la même manière que nous trions les cartes à jouer entre nos mains.
+Chaque fois que nous prenons une nouvelle carte, nous la plaçons au bon endroit dans notre main. 
+
+Instructions
+Chaque fois, travaillez uniquement avec le premier élément i-1 du tableau
+Choisissez l'élément arr[i] et insérez-le dans une séquence triée dans le tableau de 0 à i-1.  */
+
+
+PROCEDURE trie_par_insertion (tab)
+VAR
+    tab: ARRAY_OF INTEGER[5];
+    n,x,i,j:INTEGER;
+BEGIN
+    read(tab);
+    n:=tab.length;
+
+    FOR i FROM 1 TO  n-1  STEP 1  DO
+        x:=tab[i];
+        j:=i;
+            WHILE (j>0 AND tab[j-1]>x) DO
+                tab[j]:=tab[j-1];
+                j:=j-1;
+                tab[j]:=x
+            END_WHILE
+    END_FOR
+END
+
+ALGORITHM trie
+VAR
+    arr:ARRAY_OF INTEGER[5];
+    
+BEGIN
+
+    trie_par_insertion(arr);
+    write(arr);
+    
+END
